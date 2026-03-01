@@ -160,6 +160,26 @@ header {
 main {
   padding: 1.5rem;
 }
+#breaking-news article {
+  background-color: var(--news-flash);
+  color: var(--watchdog-white);
+}
+#breaking-news h3 {
+  border-bottom: 1px solid var(--watchdog-white);
+}
+article {
+  padding: 1rem;
+  border: 1px solid var(--truth-text);
+  margin-bottom: 0.5rem;
+  box-shadow: var(--shadow);
+}
+article h3 {
+  border-bottom: 0.5px solid var(--truth-text);
+  margin-bottom: 0.5rem;
+}
+article p {
+  line-height: 1.25rem;
+}
 
 /* ///ADD/// Global Text Styles */
 body {
@@ -190,6 +210,11 @@ p {
 blockquote {
   text-align: center;
   padding: 1rem 0;
+}
+h3 {
+  font-family: var(--font-heading);
+  font-weight: 300;
+  line-height: 1.5rem;
 }
 
 /* ///ADD/// medium styles 620px */
