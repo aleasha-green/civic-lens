@@ -100,7 +100,7 @@ body.dark-mode {
   padding: 0.5em;
 }
 
-/* ///ADD/// Navigation Styles */
+/* Navigation Styles */
 nav {
   text-align: center;
   text-transform: uppercase;
@@ -109,37 +109,37 @@ nav {
   padding: 1rem 0 0.5rem;
 }
 .menu-button {
-  background-color: var(--news-flash);
-  color: var(--watchdog-white);
   display: block;
   width: 90%;
-  /* margin: 0 auto 0.5rem;*/
   margin: 0 auto 0.5rem;
-  border: 1px solid var(--blue-bulletin);
   padding: 0.5rem;
+  background-color: var(--news-flash);
+  color: var(--watchdog-white);
+  border: 1px solid var(--blue-bulletin);
 }
 .menu {
   display: none;
-  background-color: transparent;
   position: absolute;
   width: 100%;
+  background-color: transparent;
 }
 .menu a {
-  background-color: var(--news-flash);
-  color: var(--watchdog-white);
-  text-decoration: none;
   display: block;
   width: 90%;
   margin: auto;
   border: 1px solid var(--blue-bulletin);
+}
+.menu a, #social a {
+  background-color: var(--news-flash);
+  color: var(--watchdog-white);
   padding: 0.5rem;
-  border: 1px solid var(--news-flash);
+  text-decoration: none;
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
 .menu a:hover, #social a:hover {
   background-color: var(--blue-bulletin);
-  
+  border: 1px solid var(--news-flash);
 }
-/* following is added because hidden attribute was removed */
 #menu-toggle {
   position: absolute;
   opacity: 0;
@@ -147,32 +147,8 @@ nav {
 #menu-toggle:checked ~ .menu {
   display: block;
 }
-/*  responsive effects */
-.menu a, #social a {
-  transition: background-color 0.5s ease, color 0.5s ease;
-}
-article {
-  transition: transform 0.5s ease;
-}
-article:hover {
-  transform: scale(1.05);
-}
-input[type="checkbox"] {
-  accent-color: var(--blue-bulletin);
-}
-input[type="checkbox"]:checked {
-  background-color: var(--blue-bulletin);
-  color: var(--watchdog-white);
-}
-#alerts button {
-  transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
-}
-#alerts button:hover {
-  background-color: var(--watchdog-white);
-  color: var(--blue-bulletin);
-}
 
-/* ///ADD/// Global Layout Styles */
+/* Global Layout Styles */
 body {
   background-color: var(--watchdog-white);
 }
@@ -181,20 +157,30 @@ header {
   color: var(--watchdog-white);
   padding: 1rem 1rem 0;
 }
-
-
-
-
-
 #main-content > section:not(#social) {
   padding: 1rem;
 }
-
-
-
-
-
-
+/* articles */
+article {
+  padding: 1rem;
+  border: 0.5px solid var(--truth-text);
+  margin-bottom: 0.5rem;
+  box-shadow: var(--shadow);
+  transition: transform 0.5s ease;
+}
+article:hover {
+  transform: scale(1.05);
+}
+article h3 {
+  border-bottom: 0.5px solid var(--truth-text);
+  margin-bottom: 0.5rem;
+}
+body.dark-mode article {
+  border: 1px solid var(--story-subtitle);
+}
+body.dark-mode article h3 {
+  border-bottom: 0.5px solid var(--story-subtitle);
+}
 #breaking-news article {
   background-color: var(--news-flash);
   color: var(--watchdog-white);
@@ -202,35 +188,7 @@ header {
 #breaking-news h3 {
   border-bottom: 1px solid var(--watchdog-white);
 }
-article {
-  padding: 1rem;
-  border: 0.5px solid var(--truth-text);
-  margin-bottom: 0.5rem;
-  box-shadow: var(--shadow);
-}
-article h3 {
-  border-bottom: 0.5px solid var(--truth-text);
-  margin-bottom: 0.5rem;
-}
-article p {
-  line-height: 1.25rem;
-}
- 
-
-
-
-body.dark-mode article {
-  border: 1px solid var(--story-subtitle);
-}
-body.dark-mode article h3 {
-  border-bottom: 0.5px solid var(--story-subtitle);
-}
-
-
-
-
-
-
+/* form */
 form {
   display: flex;
   flex-direction: column;
@@ -239,14 +197,10 @@ form {
   padding: 1rem;
   box-shadow: var(--shadow);
 }
-label {
-  font-weight: 300;
-}
 form input {
   padding: 0.5rem;
   margin: 0.5rem 0;
 }
-
 fieldset {
   border: 1px solid var(--blue-bulletin);
   margin: 1rem 0;
@@ -255,6 +209,13 @@ fieldset {
 fieldset legend {
   text-transform: uppercase;
 }
+input[type="checkbox"] {
+  accent-color: var(--blue-bulletin);
+}
+input[type="checkbox"]:checked {
+  background-color: var(--blue-bulletin);
+  color: var(--watchdog-white);
+}
 form button {
   background-color: var(--blue-bulletin);
   color: var(--watchdog-white);
@@ -262,18 +223,20 @@ form button {
   padding: 0.5rem;
   font-family: var(--font-body);
   border: 1px solid var(--blue-bulletin);
+  transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
 }
+form button:hover {
+  background-color: var(--watchdog-white);
+  color: var(--blue-bulletin);
+}
+.label-group {
+  display: flex;
+  flex-direction: column;
+}
+/* social links + footer */
 #social {
   background-color: var(--blue-bulletin);
   padding: 1rem;
-}
-#social a {
-  background-color: var(--news-flash);
-  color: var(--watchdog-white);
-  padding: 0.5rem;
-  text-decoration: none;
-  text-transform: uppercase;
-  border: 1px solid var(--news-flash);
 }
 #social ul {
   display: flex;
@@ -281,22 +244,10 @@ form button {
   row-gap: 2rem;
   column-gap: 1rem;
 }
-#social h2 {
-  color: var(--watchdog-white);
+#social a {
+  text-transform: uppercase;
+  border: 1px solid var(--news-flash);
 }
-/*
-.menu a {
-  background-color: var(--news-flash);
-  color: var(--watchdog-white);
-  text-decoration: none;
-  display: block;
-  width: 90%;
-  margin: auto;
-  border: 1px solid var(--blue-bulletin);
-  padding: 0.5rem;
-}
-  */
-
 footer {
   background-color: var(--blue-bulletin);
   color: var(--watchdog-white);
@@ -305,7 +256,7 @@ footer {
   padding: 1rem;
 }
 
-/* ///ADD/// Global Text Styles */
+/* Global Text Styles */
 body {
   font-family: var(--font-body);
   color: var(--truth-text);
@@ -316,38 +267,43 @@ h1 {
   font-weight: 300;
   padding-bottom: 0.5rem;
 }
-.tagline {
-  font-family: var(--font-heading);
-  font-size: 0.75rem;
-  font-weight: 600;
-}
 h2 {
   font-family: var(--font-heading);
   font-size: 1.25rem;
   font-weight: 300;
   padding: 1rem 0;
 }
-p {
-  font-weight: 300;
-  line-height: 1.5rem;
-}
-blockquote {
-  text-align: center;
-  padding: 1rem 0 0;
-}
 h3 {
   font-family: var(--font-heading);
   font-weight: 300;
   line-height: 1.5rem;
 }
-
-.label-group {
-  display: flex;
-  flex-direction: column;
+p {
+  font-weight: 300;
+  line-height: 1.5rem;
+}
+article p {
+  line-height: 1.25rem;
+}
+blockquote {
+  text-align: center;
+  padding: 1rem 0 0;
+}
+label {
+  font-weight: 300;
+}
+.tagline {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+#social h2 {
+  color: var(--watchdog-white);
 }
 
-/* ///ADD/// medium styles 620px */
+/* medium styles 620px */
 @media screen and (min-width: 620px) {
+  /* grid */
   #breaking-news, #featured-articles {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -356,20 +312,19 @@ h3 {
   #breaking-news h2, #featured-articles h2 {
     grid-column: 1 / -1;
   }
-  #alerts form {
+  form {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0.5rem;
   }
-  #alerts fieldset {
+  form fieldset {
     display: grid;
     grid-column: 1 / -1;
     grid-template-columns: 1fr 1fr;
   }
-  #alerts button {
+  form button {
     grid-column: 1 / -1;
   }
-
   /* adjust padding */
   header {
     padding: 2rem 2rem 0;
@@ -377,13 +332,10 @@ h3 {
   nav {
     padding: 1rem;
   }
-  #main-content > section:not(#social),
-  #social, footer {
+  #main-content > section:not(#social), #social, footer {
     padding: 2rem;
   }
-  
-
-  /* menu styles */
+  /* menu */
   .menu-button, #menu-toggle {
     display: none;
   }
@@ -399,13 +351,12 @@ h3 {
   }
 }
 
-
-/* ///ADD/// large styles 920px */
+/* large styles 920px */
 @media screen and (min-width: 920px) {
+  /* grid */
   #featured-articles,  #alerts fieldset {
     grid-template-columns: repeat(3, 1fr);
   }
-
   /* adjust padding */
   header {
     padding: 4rem 4rem 0;
@@ -413,14 +364,12 @@ h3 {
   nav {
     padding: 1rem 3rem 1rem;
   }
-  #main-content > section:not(#social),
-  #social, footer {
+  #main-content > section:not(#social), #social, footer {
     padding: 2rem 4rem 1rem;
   }
 }
 
-
-/* ///ADD/// x-large styles 1024px */
+/* x-large styles 1024px */
 @media screen and (min-width: 1024px) {
   /* adjust padding */
   header {
@@ -429,14 +378,12 @@ h3 {
   nav {
     padding: 2rem 15rem;
   }
-  #main-content > section:not(#social),
-  #social, footer {
+  #main-content > section:not(#social), #social, footer {
     padding: 2rem 16rem 2rem;
   }
 }
 
-
-/* ///ADD/// Interaction Queries for color scheme light and dark and motion preference */
+/* Interaction Queries for color scheme light and dark and motion preference */
 @media (prefers-color-scheme: dark) {
   body {
     background-color: var(--truth-text);
@@ -455,8 +402,7 @@ h3 {
   }
 }
 
-
-/* ///ADD///  Feature Query for :has() that checks if the #menu-toggle is checked */
+/* Feature Query for :has() that checks if the #menu-toggle is checked */
 @supports (selector(:has(*))) {
   #menu-toggle:checked:has(~ .menu) ~ .menu {
     display: block;
