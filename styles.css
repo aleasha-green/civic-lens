@@ -181,6 +181,10 @@ body.dark-mode article {
 body.dark-mode article h3 {
   border-bottom: 0.5px solid var(--story-subtitle);
 }
+.article-video {
+  width: 100%;
+  height: auto;
+}
 #breaking-news article {
   background-color: var(--news-flash);
   color: var(--watchdog-white);
@@ -371,15 +375,9 @@ label {
 
 /* x-large styles 1024px */
 @media screen and (min-width: 1024px) {
-  /* adjust padding */
-  header {
-    padding: 8rem 16rem 0;
-  }
-  nav {
-    padding: 2rem 15rem;
-  }
-  #main-content > section:not(#social), #social, footer {
-    padding: 2rem 16rem 2rem;
+  /* grid */
+  #featured-articles,  #alerts fieldset {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
@@ -404,7 +402,7 @@ label {
 
 /* Feature Query for :has() that checks if the #menu-toggle is checked */
 @supports (selector(:has(*))) {
-  #menu-toggle:checked:has(~ .menu) ~ .menu {
+  body:has(#menu-toggle:checked) .menu {
     display: block;
   }
 }
